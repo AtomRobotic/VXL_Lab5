@@ -1,0 +1,5 @@
+../Core/Src/timer.c:16:6:setTimer1	1
+../Core/Src/timer.c:21:6:setTimer2	1
+../Core/Src/timer.c:26:15:isTimer1_flag	1
+../Core/Src/timer.c:30:15:isTimer2_flag	1
+../Core/Src/timer.c:34:6:timerRun	5
