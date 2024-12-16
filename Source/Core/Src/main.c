@@ -67,13 +67,12 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if (huart->Instance == USART2) {
-//		buffer[index_buffer++] = temp;
-//		if (index_buffer == MAX_BUFFER_SIZE)
-//			index_buffer = 5;
-//		buffer_flag = 1;
+		buffer[index_buffer++] = temp;
+		if (index_buffer == MAX_BUFFER_SIZE)
+			index_buffer = 5;
+		buffer_flag = 1;
 		HAL_UART_Receive_IT(&huart2, &temp, 1);
 		HAL_UART_Transmit(&huart2, &temp, 1, 200);
-		command_parser_fsm();
 	}
 }
 /* USER CODE END 0 */
@@ -121,10 +120,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-//	  if(buffer_flag == 1){
-//		  command_parser_fsm();
-//		  buffer_flag = 0;
-//	  }
+	  if(buffer_flag == 1){
+		  command_parser_fsm();
+		  buffer_flag = 0;
+	  }
 	  uart_communication_fsm();
     /* USER CODE END WHILE */
 

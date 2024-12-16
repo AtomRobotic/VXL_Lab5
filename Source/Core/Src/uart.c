@@ -101,7 +101,7 @@ void uart_communication_fsm(void){
 		HAL_UART_Transmit(&huart2, (uint8_t*) str, strlen(str), 100);
 		HAL_UART_Transmit(&huart2, (uint8_t*) "#\r\n", 3, 100);
 		if(command_flag){
-			setTimer1(1000);
+			setTimer1(3000);
 			VMState = RESEND_DATA;
 		}
 		break;
@@ -110,7 +110,7 @@ void uart_communication_fsm(void){
 			HAL_UART_Transmit(&huart2, buffer, 5, 100);
 			HAL_UART_Transmit(&huart2, (uint8_t*) str, strlen(str), 100);
 			HAL_UART_Transmit(&huart2, (uint8_t*) "#\r\n", 3, 100);
-			setTimer1(1000);
+			setTimer1(3000);
 		}
 		if(!command_flag){
 			VMState = WAIT_COMMAND;
